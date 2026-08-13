@@ -1,9 +1,8 @@
-/* Typewriter */
 const texts = [
-    "Merhaba.",
-    "Ben Mehmet.",
-    "Web Developer.",
-    "Security Meraklısı."
+    "hi.",
+    "i am 0xmht.",
+    "web developer",
+    "github depend."
 ];
 
 let textIndex = 0;
