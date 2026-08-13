@@ -2,67 +2,64 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Mehmet | Web Developer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mehmet | Web Developer & Security Enthusiast">
+    <title>0xmht — Dil Seçimi / Language</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .lang-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .lang-btn {
+            display: block;
+            padding: 1.2rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: 0.25s;
+        }
+        .lang-btn:hover {
+            background: var(--surface-hover);
+            transform: translateY(-2px);
+        }
+        .lang-btn small {
+            display: block;
+            font-weight: 400;
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-top: 4px;
+        }
+    </style>
 </head>
 <body>
 
-<div class="background"></div>
+<main style="max-width: 500px; text-align: center;">
+    <section class="card">
+        <h1>🌐 0xmht</h1>
+        <p style="margin-bottom: 2rem;">Select your language / Dilini seç</p>
 
-<header class="hero glass">
-    <h1 id="type"></h1>
-    <p class="subtitle">
-        Web teknolojileriyle ilgileniyorum.  
-        Arayüz, sistem ve güvenlik konularında  
-        sade ama sağlam işler üretmeye çalışıyorum.
-    </p>
-    <button class="primary" onclick="nextSection()">Devam Et</button>
-</header>
+        <div class="lang-grid">
+            <a href="/tr/" class="lang-btn">
+                🇹🇷 Türkçe
+                <small>Ana dilim</small>
+            </a>
+            <a href="/en/" class="lang-btn">
+                🇬🇧 English
+                <small>My second language</small>
+            </a>
+        </div>
 
-<section class="section glass hidden" id="about">
-    <h2>Hakkımda</h2>
-    <p>
-        Web geliştirme sürecine sadece “site yapmak” olarak bakmıyorum.  
-        Yazdığım kodun okunabilir, sürdürülebilir ve mantıklı olmasına önem veriyorum.
-        <br><br>
-        Frontend tarafında modern arayüzler üretirken, arka planda
-        sistemin nasıl çalıştığını da anlamaya çalışırım.
-        Güvenlik benim için ekstra bir özellik değil,
-        baştan düşünülmesi gereken bir gerekliliktir.
-    </p>
-    <button class="primary" onclick="nextSection()">Devam</button>
-</section>
+        <p style="font-size: 0.8rem; color: var(--muted); margin-top: 2rem;">
+            © 2026 0xmht — open source, open mind.
+        </p>
+    </section>
+</main>
 
-<section class="section glass hidden" id="work">
-    <h2>Odaklandığım Alanlar</h2>
-    <p>
-        Aşağıdaki konular üzerinde aktif olarak çalışıyorum
-        ve kendimi bu alanlarda geliştirmeye devam ediyorum:
-    </p>
-    <ul>
-        <li>HTML, CSS ve JavaScript ile modern web arayüzleri</li>
-        <li>Cam efektli, animasyonlu ve sade tasarım yaklaşımları</li>
-        <li>JavaScript tabanlı küçük oyunlar ve etkileşimler</li>
-        <li>SSL, HTTPS yapılandırmaları ve domain yönetimi</li>
-        <li>Basit ama mantıklı sistem mimarileri</li>
-    </ul>
-    <button class="primary" onclick="nextSection()">Devam</button>
-</section>
-
-<section class="section glass hidden" id="project">
-    <h2>Canlı Proje</h2>
-    <p>
-        Teoriyle yetinmiyorum.  
-        Üzerinde çalıştığım projeleri canlı ortamda test etmeyi seviyorum.
-        <br><br>
-        Aşağıdaki bağlantı, geliştirdiğim
-        JavaScript tabanlı oyunlar oluşturan oyun şirketimin web sitesine gider.
-    </p>
-    <button class="secondary" onclick="goGame()">Projeye Git</button>
-</section>
-
-<script src="script.js"></script>
 </body>
 </html>
