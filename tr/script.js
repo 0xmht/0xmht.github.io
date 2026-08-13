@@ -46,5 +46,5 @@ function nextSection() {
 
 /* External Project */
 function goGame() {
-    window.open("http://oyun.archever.qzz.io", "_blank");
+    window.open("http://oqilogames.netlify.app", "_blank");
 }
