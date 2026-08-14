@@ -1,0 +1,49 @@
+name: Deploy with Manual Retry
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      retry_count:
+        description: 'Kaç kere dene'
+        required: false
+        default: '3'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      
+      - name: Install & Build
+        run: |
+          npm ci
+          npm run build
+      
+      - name: Deploy with retry
+        run: |
+          MAX_RETRIES=${{ github.event.inputs.retry_count || 3 }}
+          RETRY_COUNT=0
+          
+          while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
+            echo "Deploy denemesi #$((RETRY_COUNT+1))"
+            if npx gh-pages -d dist -b gh-pages; then
+              echo "✅ Deploy başarılı!"
+              exit 0
+            else
+              RETRY_COUNT=$((RETRY_COUNT+1))
+              if [ $RETRY_COUNT -lt $MAX_RETRIES ]; then
+                echo "❌ Deploy başarısız, 1 dakika beklenip tekrar deneniyor..."
+                sleep 60
+              fi
+            fi
+          done
+          
+          echo "❌ Tüm denemeler başarısız!"
+          exit 1
