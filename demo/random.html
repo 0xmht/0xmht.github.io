@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <style>
+      body {
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="rastgele()">Rastgele renk! YEHUU</button>
+    <button onclick="yoket()">Bu sayfayı yok etmek için bas</button>
+    <script>
+    function  rastgele() {
+      let i = 0;
+const renkGoster = setInterval(() => {
+    let renk = '#' + Math.floor(Math.random()*16777215).toString(16);
+    document.body.style.backgroundColor = renk;
+    i++;
+    if (i >= 1000) clearInterval(renkGoster);
+}, 100); // 100ms'de bir değişir
+    }
+      function yoket() {
+        document.write("BOOOOM💣! sayfayı yeniden getirmek için yeniden yükle!");
+      }
+    </script>
+  </body>
+</html>
