@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🚗 Hayalet Sürüş</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            user-select: none;
+        }
+        body {
+            background: #0b0e14;
+            color: #00ffcc;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .dashboard {
+            background: #1a1f2a;
+            padding: 30px 40px;
+            border-radius: 40px;
+            box-shadow: 0 0 40px rgba(0, 255, 200, 0.2);
+            text-align: center;
+            min-width: 360px;
+            border: 1px solid #2a3344;
+        }
+        h1 {
+            font-size: 2rem;
+            margin: 0 0 8px 0;
+            letter-spacing: 2px;
+            text-shadow: 0 0 12px #00ffcc55;
+        }
+        .sub {
+            color: #8899bb;
+            font-size: 0.85rem;
+            margin-bottom: 24px;
+        }
+        .rpm-box {
+            background: #0f141e;
+            padding: 16px 10px;
+            border-radius: 60px;
+            margin-bottom: 20px;
+            border: 1px solid #2a3344;
+        }
+        .rpm-value {
+            font-size: 3.6rem;
+            font-weight: 700;
+            font-variant-numeric: tabular-nums;
+            letter-spacing: 2px;
+            color: #00ffcc;
+        }
+        .rpm-label {
+            font-size: 0.8rem;
+            color: #6688aa;
+        }
+        .gear-box {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin: 18px 0 22px 0;
+        }
+        .gear-btn {
+            background: #1e2635;
+            border: 1px solid #2f3b50;
+            color: #aabbdd;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: 0.15s;
+        }
+        .gear-btn.active {
+            background: #00ffcc;
+            color: #0b0e14;
+            border-color: #00ffcc;
+            box-shadow: 0 0 20px #00ffcc55;
+        }
+        .gear-btn:hover {
+            background: #2a3346;
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 8px;
+        }
+        .ctrl-btn {
+            background: #1e2635;
+            border: none;
+            color: #ccddff;
+            padding: 12px 28px;
+            border-radius: 60px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.12s;
+            border: 1px solid #2f3b50;
+            flex: 1;
+        }
+        .ctrl-btn:active {
+            transform: scale(0.94);
+        }
+        .ctrl-btn.gaz {
+            background: #00aa77;
+            border-color: #00dd99;
+            color: #000;
+        }
+        .ctrl-btn.gaz:active {
+            background: #00dd99;
+        }
+        .ctrl-btn.fren {
+            background: #663344;
+            border-color: #aa5566;
+            color: #ffccdd;
+        }
+        .ctrl-btn.fren:active {
+            background: #884455;
+        }
+        .footer {
+            margin-top: 22px;
+            font-size: 0.7rem;
+            color: #445566;
+            border-top: 1px solid #1e2635;
+            padding-top: 16px;
+        }
+        kbd {
+            background: #0f141e;
+            padding: 2px 10px;
+            border-radius: 6px;
+            border: 1px solid #2a3344;
+            color: #aabbdd;
+        }
+    </style>
+</head>
+<body>
+
+<div class="dashboard">
+    <h1>🚗 HAYALET SÜRÜŞ</h1>
+    <div class="sub">⚡ AudioAPI · gerçek ses yok · tamamen sentetik</div>
+
+    <div class="rpm-box">
+        <div class="rpm-value" id="rpmDisplay">850</div>
+        <div class="rpm-label">DEVİR (RPM)</div>
+    </div>
+
+    <div class="gear-box" id="gearBox">
+        <div class="gear-btn" data-gear="0">N</div>
+        <div class="gear-btn" data-gear="1">1</div>
+        <div class="gear-btn active" data-gear="2">2</div>
+        <div class="gear-btn" data-gear="3">3</div>
+        <div class="gear-btn" data-gear="4">4</div>
+        <div class="gear-btn" data-gear="5">5</div>
+    </div>
+
+    <div class="controls">
+        <button class="ctrl-btn gaz" id="gazBtn">⛽ GAZ</button>
+        <button class="ctrl-btn fren" id="frenBtn">⛔ FREN</button>
+    </div>
+
+    <div class="footer">
+        <kbd>Boşluk</kbd> gaz · <kbd>↓</kbd> fren · <kbd>1-5</kbd> vites · <kbd>N</kbd> boş
+    </div>
+</div>
+
+<script>
+    (function() {
+        // ---- SES SİSTEMİ ----
+        let audioCtx = null;
+        let osc = null;
+        let gain = null;
+
+        function initAudio() {
+            if (audioCtx) return;
+            audioCtx = new(window.AudioContext || window.webkitAudioContext)();
+            osc = audioCtx.createOscillator();
+            gain = audioCtx.createGain();
+
+            osc.type = 'sawtooth'; // motor sesine en yakın
+            osc.frequency.value = 30; // rölanti
+
+            gain.gain.value = 0.0; // sessiz başla
+
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start();
+        }
+
+        // ---- DURUM ----
+        let rpm = 850; // rölanti
+        let targetRpm = 850;
+        let gear = 2; // 0=boş, 1-5
+        const gearMultiplier = [0, 0.4, 0.7, 1.0, 1.35, 1.75];
+        const rpmMin = 650;
+        const rpmMax = 7200;
+
+        const rpmDisplay = document.getElementById('rpmDisplay');
+        const gearBtns = document.querySelectorAll('.gear-btn');
+
+        // ---- VİTES ----
+        gearBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const g = parseInt(this.dataset.gear, 10);
+                setGear(g);
+            });
+        });
+
+        function setGear(g) {
+            gear = g;
+            gearBtns.forEach(b => b.classList.remove('active'));
+            document.querySelector(`.gear-btn[data-gear="${g}"]`).classList.add('active');
+            // vites değişince ses tınısı biraz değişsin
+            if (osc) {
+                // vites yükseldikçe tını hafif tizleşir
+                const baseFreq = 30 + gear * 6;
+                osc.frequency.setTargetAtTime(baseFreq + (rpm / 150), audioCtx.currentTime, 0.05);
+            }
+        }
+
+        // ---- GAZ / FREN ----
+        let gasPressed = false;
+        let brakePressed = false;
+
+        function updateRpm() {
+            if (gasPressed) {
+                targetRpm = Math.min(rpmMax, targetRpm + 180);
+            } else if (brakePressed) {
+                targetRpm = Math.max(rpmMin, targetRpm - 350);
+            } else {
+                // rölantiye dön
+                if (targetRpm > rpmMin + 50) targetRpm = Math.max(rpmMin, targetRpm - 30);
+                else targetRpm = rpmMin + (gear === 0 ? 0 : 20);
+            }
+
+            // yumuşak geçiş
+            rpm += (targetRpm - rpm) * 0.12;
+            rpm = Math.min(rpmMax, Math.max(rpmMin, Math.round(rpm)));
+
+            // ekrana yaz
+            rpmDisplay.textContent = Math.round(rpm);
+
+            // Sesi güncelle
+            if (osc && audioCtx) {
+                // frekans = rölanti + devir etkisi
+                const baseFreq = 28 + gear * 5;
+                const freq = baseFreq + (rpm / 220);
+                osc.frequency.setTargetAtTime(Math.min(180, freq), audioCtx.currentTime, 0.02);
+
+                // ses şiddeti: devire göre (rölantide çok kısık)
+                let vol = 0;
+                if (rpm > 900) {
+                    vol = Math.min(0.35, (rpm - 900) / 14000);
+                } else {
+                    vol = 0.02 + (rpm - rpmMin) / 8000;
+                }
+                if (gear === 0) vol = vol * 0.3; // boşta daha sessiz
+                gain.gain.setTargetAtTime(vol, audioCtx.currentTime, 0.03);
+            }
+        }
+
+        // ---- KONTROLLER ----
+        const gazBtn = document.getElementById('gazBtn');
+        const frenBtn = document.getElementById('frenBtn');
+
+        function gasOn() {
+            initAudio();
+            if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+            gasPressed = true;
+            gazBtn.style.transform = 'scale(0.94)';
+            gazBtn.style.background = '#00dd99';
+        }
+
+        function gasOff() {
+            gasPressed = false;
+            gazBtn.style.transform = 'scale(1)';
+            gazBtn.style.background = '#00aa77';
+        }
+
+        function brakeOn() {
+            brakePressed = true;
+            frenBtn.style.transform = 'scale(0.94)';
+            frenBtn.style.background = '#884455';
+        }
+
+        function brakeOff() {
+            brakePressed = false;
+            frenBtn.style.transform = 'scale(1)';
+            frenBtn.style.background = '#663344';
+        }
+
+        // fare ile
+        gazBtn.addEventListener('mousedown', gasOn);
+        gazBtn.addEventListener('mouseup', gasOff);
+        gazBtn.addEventListener('mouseleave', gasOff);
+
+        frenBtn.addEventListener('mousedown', brakeOn);
+        frenBtn.addEventListener('mouseup', brakeOff);
+        frenBtn.addEventListener('mouseleave', brakeOff);
+
+        // klavye
+        document.addEventListener('keydown', function(e) {
+            if (e.key === ' ' || e.key === 'Space') {
+                e.preventDefault();
+                if (!gasPressed) gasOn();
+            }
+            if (e.key === 'ArrowDown' || e.key === 'Down') {
+                e.preventDefault();
+                if (!brakePressed) brakeOn();
+            }
+            // vites tuşları 1-5 ve N
+            const keyNum = parseInt(e.key, 10);
+            if (keyNum >= 1 && keyNum <= 5) {
+                setGear(keyNum);
+            }
+            if (e.key === 'n' || e.key === 'N') {
+                setGear(0);
+            }
+        });
+
+        document.addEventListener('keyup', function(e) {
+            if (e.key === ' ' || e.key === 'Space') {
+                e.preventDefault();
+                gasOff();
+            }
+            if (e.key === 'ArrowDown' || e.key === 'Down') {
+                e.preventDefault();
+                brakeOff();
+            }
+        });
+
+        // ---- DÖNGÜ ----
+        function loop() {
+            updateRpm();
+            requestAnimationFrame(loop);
+        }
+
+        loop();
+
+        // ---- ÇIKIŞTA SESİ KAPA ----
+        window.addEventListener('beforeunload', function() {
+            if (gain) gain.gain.value = 0;
+            if (osc) osc.stop();
+        });
+
+        // Mobilde dokunma ile ses başlatma
+        document.addEventListener('touchstart', function() {
+            initAudio();
+            if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+        }, { once: false });
+
+        // vites başlangıç görünümü
+        setGear(2);
+    })();
+</script>
+</body>
+                                                                             </html>
