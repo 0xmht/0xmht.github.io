@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>OpenShell - Kullanım Koşulları ve Gizlilik Politikası</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0d0d0d;
+            color: #e0e0e0;
+            font-family: 'Courier New', monospace;
+            line-height: 1.8;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        main {
+            max-width: 820px;
+            width: 100%;
+            background: #141414;
+            padding: 3rem 2.5rem;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.8);
+        }
+
+        header {
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid #282828;
+            padding-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 1.6rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #f0f0f0;
+            margin-bottom: 0.5rem;
+        }
+
+        header p.meta {
+            font-size: 0.85rem;
+            color: #888;
+            letter-spacing: 1px;
+        }
+
+        section {
+            margin-bottom: 2.2rem;
+            border-bottom: 1px dashed #282828;
+            padding-bottom: 1.8rem;
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        h2 {
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #b0b0b0;
+            margin-bottom: 0.8rem;
+            border-left: 3px solid #4a4a4a;
+            padding-left: 0.8rem;
+        }
+
+        h3 {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #d0d0d0;
+            margin-top: 1rem;
+            margin-bottom: 0.4rem;
+        }
+
+        p {
+            color: #c8c8c8;
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+            text-align: justify;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem 1.2rem;
+            margin: 0.8rem 0 1.2rem 0;
+        }
+
+        ul li {
+            font-size: 0.85rem;
+            background: #1e1e1e;
+            padding: 0.2rem 0.9rem;
+            border-radius: 20px;
+            border: 1px solid #2e2e2e;
+            color: #d4d4d4;
+            letter-spacing: 0.5px;
+        }
+
+        a {
+            color: #9ac7d4;
+            text-decoration: none;
+            border-bottom: 1px dotted #3a5a5a;
+            transition: color 0.2s, border-color 0.2s;
+            font-size: 0.95rem;
+        }
+
+        a:hover {
+            color: #c0e0e8;
+            border-bottom-color: #7aaab8;
+        }
+
+        .email {
+            display: inline-block;
+            margin-top: 0.3rem;
+            color: #b0b0b0;
+            border-bottom: 1px dashed #3a3a3a;
+        }
+
+        .email:hover {
+            color: #d4d4d4;
+            border-bottom-color: #6a6a6a;
+        }
+
+        footer {
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #222;
+            font-size: 0.75rem;
+            color: #606060;
+            text-align: center;
+            letter-spacing: 0.3px;
+            line-height: 2;
+        }
+
+        @media (max-width: 480px) {
+            main {
+                padding: 1.5rem 1rem;
+            }
+            ul {
+                gap: 0.4rem 0.8rem;
+            }
+            ul li {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <h1>OpenShell</h1>
+            <p class="meta">Kullanım Koşulları ve Gizlilik Politikası &bull; Son Güncelleme: 24 Ağustos 2026</p>
+        </header>
+
+        <section>
+            <h2>1. Kapsam ve Hizmet Tanımı</h2>
+            <p>OpenShell, doğrudan web tarayıcınız içerisinde çalışan, tam teşekküllü bir tarayıcı tabanlı GNU/Linux terminal simülasyonudur. İşbu Kullanım Koşulları ve Gizlilik Politikası, projenin kullanım şartlarını, yasal sorumluluk sınırlarını ve kullanıcı verilerinin işlenme biçimini resmi olarak düzenlemektedir.</p>
+            <p>Sistem; GRUB tarzı önyükleme (boot) menüsü, systemd benzeri açılış günlükleri ve 20'den fazla temel Linux komutunu (ls, cd, mkdir, cat, rm, sudo, chmod, neofetch, cowsay vb.) destekleyen gelişmiş bir komut satırı arayüzü barındırır. Ayrıca useradd, passwd ve su komutlarıyla çok kullanıcıklı (multi-user) bir mimariyi simüle eder.</p>
+        </section>
+
+        <section>
+            <h2>2. Veri Toplama, Gizlilik ve Depolama Politikası</h2>
+            <p>OpenShell mimari yapısı gereği gizliliğinizi esas alır. Veri işleme süreçleri şu prensiplere dayanır:</p>
+            <ul>
+                <li>localStorage Mimarisi</li>
+                <li>Harici Sunucu Yok</li>
+                <li>Sıfır Üçüncü Taraf Paylaşımı</li>
+                <li>İzleme ve Çerez Yoktur</li>
+            </ul>
+            <p>Proje, tarayıcınızın <code>localStorage</code> özelliğini kullanarak çalışmaktadır. Bu kapsamda oluşturduğunuz tüm sanal dosyalar, dizinler, kullanıcı hesapları, izinler, takma adlar (aliases) ve sistem ayarları yalnızca sizin yerel cihazınızda depolanır.</p>
+            <p>OpenShell altyapısı, bu verileri herhangi bir harici uzak sunucuya iletmez, işlemez veya arşivlemez. Kişisel ve sistemsel verileriniz hiçbir surette üçüncü şahıs ya da kurumlarla paylaşılmaz; çerez (cookie) veya herhangi bir analiz/izleme yazılımı barındırmaz.</p>
+        </section>
+
+        <section>
+            <h2>3. Kullanıcı Sorumlulukları ve Yasal Sınırlar</h2>
+            <p>OpenShell, GNU/Linux komut satırı kültürünü ve işletim sistemi mantığını güvenli bir ortamda öğrenmeye yönelik kapsamlı bir eğitim simülasyonudur.</p>
+            <p>Sistem içerisinde <code>sudo</code> gibi idari yetki komutları simüle ediliyor olsa da, bu yapı tamamen sanaldır ve gerçek bir işletim sistemi çekirdeğine müdahale etmez. Simülasyon içerisinde gerçekleştirilen hiçbir komut veya işlem, yerel cihazınıza, işletim sisteminize veya ağ altyapınıza fiziksel ya da mantıksal bir zarar veremez.</p>
+            <p>Platformun kullanımından doğan her türlü sorumluluk tamamen kullanıcıya aittir. Proje yöneticileri oluşabilecek akademik, pratik veya varsayımsal aksaklıklardan sorumlu tutulamaz.</p>
+        </section>
+
+        <section>
+            <h2>4. Telif Hakkı ve Açık Kaynak Lisans Koşulları</h2>
+            <p>OpenShell projesi, açık kaynak ekosistemini desteklemek amacıyla özgür yazılım lisanslarından biri (örneğin MIT veya Apache 2.0) kapsamında dağıtılmaktadır.</p>
+            <p>Bu lisanslama modeli çerçevesinde, projenin kaynak kodunu inceleyebilir, kopyalayabilir, kendi eğitim veya geliştirme amaçlarınız doğrultusunda değiştirebilirsiniz. Bununla birlikte, tüm kullanım ve dağıtım süreçlerinde ilgili lisans sözleşmesinin koşul ve hükümlerine riayet etmeniz zorunludur.</p>
+        </section>
+
+        <section>
+            <h2>5. Hizmet Sürekliliği ve Altyapı Beyanı</h2>
+            <p>OpenShell, statik barındırma sağlayan Netlify platformu üzerinde barındırılmakta ve sunulmaktadır.</p>
+            <p>Barındırma altyapısının doğası gereği geçici ağ kesintileri, erişim problemleri veya bakım çalışmaları yaşanabilir. Proje geliştiricileri ve sahipleri, web sitesinin kesintisiz, hatasız veya kesintisiz bir 7/24 süreklilikle çalışacağını garanti etmemektedir.</p>
+        </section>
+
+        <section>
+            <h2>6. İletişim, Destek ve Politika Değişiklikleri</h2>
+            <p>İşbu Kullanım Koşulları ve Gizlilik Politikası, projenin geliştirilme süreçlerine bağlı olarak güncellenebilir. Güncel metin her zaman bu sayfa üzerinden kullanıcılara sunulur.</p>
+            <p>Projeyle ilgili her türlü soru, öneri, telif bildirimi veya geri bildirim için resmi iletişim kanalı üzerinden bağlantı kurabilirsiniz:</p>
+            <p><a href="mailto:mehmetdestek454@gmail.com" class="email">mehmetdestek454@gmail.com</a></p>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 OpenShell Project. Tüm hakları saklıdır. GNU/Linux Eğitim Simülasyonu.</p>
+        </footer>
+    </main>
+</body>
+  </html>
+  
