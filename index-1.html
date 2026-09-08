@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="mehmet'in kişisel web sitesi">
+<meta name="theme-color" content="#101010">
+<title>mehmet.</title>
+
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+    margin:0;
+    background:#101010;
+    color:#eee;
+    font-family:Arial,Helvetica,sans-serif;
+    line-height:1.6;
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+
+header{
+    border-bottom:1px solid #292929;
+    background:#101010;
+}
+.nav{
+    max-width:900px;
+    margin:auto;
+    padding:18px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+.logo{font-size:20px;font-weight:bold}
+.logo span{color:#9b86ff}
+
+nav{display:flex;align-items:center;gap:4px}
+nav a{
+    color:#999;
+    font-size:13px;
+    padding:6px 8px;
+}
+nav a:hover,nav a.active{color:#fff}
+
+#language{
+    margin-left:5px;
+    padding:6px 9px;
+    background:#181818;
+    color:#ddd;
+    border:1px solid #333;
+    cursor:pointer;
+}
+
+.wrapper{
+    max-width:900px;
+    margin:auto;
+    padding-left:20px;
+    padding-right:20px;
+}
+
+.page{
+    display:none;
+    min-height:calc(100vh - 63px);
+    padding:70px 0;
+}
+.page.active{display:block}
+
+.hero{
+    display:flex;
+    align-items:center;
+}
+.hero-content{max-width:720px}
+
+.status{
+    color:#999;
+    font-size:13px;
+    margin-bottom:20px;
+}
+.dot{
+    display:inline-block;
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#65c878;
+    margin-right:6px;
+}
+
+h1{
+    margin:0;
+    font-size:clamp(48px,8vw,78px);
+    line-height:1;
+    letter-spacing:-3px;
+}
+.highlight{color:#9b86ff}
+
+.hero-text{
+    max-width:620px;
+    margin-top:22px;
+    color:#aaa;
+    font-size:17px;
+}
+
+.actions{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:28px;
+}
+.button{
+    padding:10px 15px;
+    border:1px solid #333;
+    font-size:13px;
+}
+.button:hover{background:#191919}
+.main-button{
+    background:#eee;
+    color:#111;
+    border-color:#eee;
+}
+.main-button:hover{background:#ccc}
+
+.section-title{
+    max-width:680px;
+    margin-bottom:35px;
+}
+.label{
+    color:#9b86ff;
+    font-size:11px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+h2{
+    margin:7px 0 0;
+    font-size:clamp(34px,5vw,46px);
+    letter-spacing:-1px;
+    line-height:1.15;
+}
+.lead{
+    margin-top:15px;
+    color:#aaa;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:1.4fr .7fr;
+    gap:15px;
+}
+
+.box{
+    background:#181818;
+    border:1px solid #292929;
+    padding:22px;
+}
+.box h3{margin-top:0;font-size:18px}
+.box p{color:#aaa}
+
+.info{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+.info li{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    padding:11px 0;
+    border-bottom:1px solid #292929;
+    font-size:13px;
+}
+.info li:last-child{border-bottom:0}
+.info li span:first-child{color:#888}
+
+.tech-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+}
+.tech{
+    background:#181818;
+    border:1px solid #292929;
+    padding:18px;
+}
+.tech strong{display:block}
+.tech span{
+    display:block;
+    margin-top:5px;
+    color:#999;
+    font-size:12px;
+}
+
+.project{
+    background:#181818;
+    border:1px solid #292929;
+    padding:23px;
+}
+.project + .project{margin-top:12px}
+.project-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+}
+.project h3{margin:0}
+.tag{
+    color:#aaa;
+    font-size:10px;
+    border:1px solid #333;
+    padding:4px 6px;
+}
+.project p{color:#aaa}
+.project-link{
+    display:inline-block;
+    margin-top:10px;
+    color:#a996ff;
+    font-size:13px;
+}
+
+.now-list{
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+.now-list li{
+    color:#aaa;
+    padding:9px 0;
+    border-bottom:1px solid #292929;
+}
+.now-list li:last-child{border-bottom:0}
+.now-list li::before{
+    content:"•";
+    color:#9b86ff;
+    margin-right:9px;
+}
+
+.contact{
+    max-width:650px;
+    background:#181818;
+    border:1px solid #292929;
+    padding:25px;
+}
+.contact p{color:#aaa}
+.email{
+    display:inline-block;
+    margin-top:15px;
+    color:#a996ff;
+}
+.socials{
+    display:flex;
+    gap:10px;
+    margin-top:22px;
+}
+.socials a{
+    border:1px solid #333;
+    padding:8px 11px;
+    font-size:13px;
+    color:#bbb;
+}
+.socials a:hover{color:#fff}
+
+footer{
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+    border-top:1px solid #292929;
+    color:#777;
+    font-size:12px;
+}
+
+@media(max-width:700px){
+    nav a{display:none}
+    nav a.active{display:block}
+    .grid{grid-template-columns:1fr}
+    .tech-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:450px){
+    .tech-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="nav">
+    <a href="#home" class="logo">mehmet<span>.</span></a>
+
+    <nav>
+        <a href="#home" data-tr="ana sayfa" data-en="home">ana sayfa</a>
+        <a href="#about" data-tr="hakkımda" data-en="about">hakkımda</a>
+        <a href="#skills" data-tr="kullandıklarım" data-en="skills">kullandıklarım</a>
+        <a href="#projects" data-tr="projeler" data-en="projects">projeler</a>
+        <a href="#now" data-tr="şu an" data-en="now">şu an</a>
+        <a href="#contact" data-tr="iletişim" data-en="contact">iletişim</a>
+        <button id="language" type="button">EN</button>
+    </nav>
+</div>
+</header>
+
+<main>
+
+<section class="page active" id="home">
+<div class="wrapper hero">
+<div class="hero-content">
+
+<div class="status">
+<span class="dot"></span>
+<span data-tr="web, linux ve açık kaynakla uğraşıyorum" data-en="i mess around with web, linux and open source">
+web, linux ve açık kaynakla uğraşıyorum
+</span>
+</div>
+
+<h1>
+<span data-tr="selam, ben" data-en="hi, i'm">selam, ben</span><br>
+<span class="highlight">Mehmet.</span>
+</h1>
+
+<p class="hero-text"
+data-tr="web ile uğraşıyorum. genelde arayüz yapıyorum ama sadece onunla sınırlı kalmıyorum. linux kurcalamayı ve aklıma gelen fikirleri gerçekten çalıştırmaya uğraşmayı seviyorum."
+data-en="i work with web stuff. i usually build interfaces but i don't limit myself to that. i like messing around with linux and trying to make random ideas actually work.">
+web ile uğraşıyorum. genelde arayüz yapıyorum ama sadece onunla sınırlı kalmıyorum. linux kurcalamayı ve aklıma gelen fikirleri gerçekten çalıştırmaya uğraşmayı seviyorum.
+</p>
+
+<div class="actions">
+<a href="#projects" class="button main-button" data-tr="projelere bak" data-en="see projects">projelere bak</a>
+<a href="#about" class="button" data-tr="ben kimim?" data-en="who am i?">ben kimim?</a>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="page" id="about">
+<div class="wrapper">
+
+<div class="section-title">
+<div class="label" data-tr="hakkımda" data-en="about">hakkımda</div>
+<h2 data-tr="kod yazıyorum, bozuyorum, tekrar yapıyorum." data-en="i build stuff, break it and try again.">
+kod yazıyorum, bozuyorum, tekrar yapıyorum.
+</h2>
+<p class="lead"
+data-tr="çoğu şeyi okuyarak değil, yaparken öğreniyorum. bazen bu biraz daha uzun sürüyor ama daha eğlenceli."
+data-en="i learn most things by building instead of just reading about them. sometimes it takes longer but it's more fun.">
+çoğu şeyi okuyarak değil, yaparken öğreniyorum. bazen bu biraz daha uzun sürüyor ama daha eğlenceli.
+</p>
+</div>
+
+<div class="grid">
+<div class="box">
+<h3 data-tr="kısaca ben" data-en="a little about me">kısaca ben</h3>
+
+<p data-tr="ben Mehmet. web geliştirme ile ilgileniyorum ve öğrendiğim şeyleri küçük projelerde denemeyi seviyorum. bazen bir şeyin nasıl çalıştığını merak edip gereğinden fazla zaman harcadığım oluyor :) Linux kullanıyorum, açık kaynak projelerine bakıyorum ve ilgimi çeken teknolojileri kurcalıyorum."
+data-en="i'm Mehmet. i'm interested in web development and like testing what i learn in small projects. sometimes i spend way too much time trying to understand how something works :) i use Linux, check out open source projects and explore technologies that catch my attention.">
+ben Mehmet. web geliştirme ile ilgileniyorum ve öğrendiğim şeyleri küçük projelerde denemeyi seviyorum. bazen bir şeyin nasıl çalıştığını merak edip gereğinden fazla zaman harcadığım oluyor :) Linux kullanıyorum, açık kaynak projelerine bakıyorum ve ilgimi çeken teknolojileri kurcalıyorum.
+</p>
+
+<p style="margin-top:15px"
+data-tr="siteyi de bilerek framework kullanmadan yaptım. çünkü bazen düz HTML, CSS ve JavaScript ile uğraşmak daha mantıklı geliyor."
+data-en="i intentionally built this site without a framework too. sometimes plain HTML, CSS and JavaScript just makes more sense.">
+siteyi de bilerek framework kullanmadan yaptım. çünkü bazen düz HTML, CSS ve JavaScript ile uğraşmak daha mantıklı geliyor.
+</p>
+</div>
+
+<div class="box">
+<ul class="info">
+<li><span>focus</span><span>web</span></li>
+<li><span>os</span><span>linux</span></li>
+<li><span>sevdiğim</span><span>open source</span></li>
+<li><span>git</span><span>evet :)</span></li>
+</ul>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="page" id="skills">
+<div class="wrapper">
+
+<div class="section-title">
+<div class="label" data-tr="kullandıklarım" data-en="skills">kullandıklarım</div>
+<h2 data-tr="araçlar ve başka şeyler." data-en="tools and other stuff.">araçlar ve başka şeyler.</h2>
+<p class="lead"
+data-tr="her şeyi biliyorum gibi davranmayacağım. bunlar kullandığım ve öğrenmeye devam ettiğim şeyler."
+data-en="i'm not going to pretend i know everything. these are the things i use and keep learning.">
+her şeyi biliyorum gibi davranmayacağım. bunlar kullandığım ve öğrenmeye devam ettiğim şeyler.
+</p>
+</div>
+
+<div class="tech-grid">
+<div class="tech"><strong>HTML</strong><span data-tr="sayfaları yapmak için" data-en="for building pages">sayfaları yapmak için</span></div>
+<div class="tech"><strong>CSS</strong><span data-tr="daha az çirkin görünmesi için" data-en="to make things less ugly">daha az çirkin görünmesi için</span></div>
+<div class="tech"><strong>JavaScript</strong><span data-tr="sayfaya biraz hayat katmak için" data-en="to make pages do things">sayfaya biraz hayat katmak için</span></div>
+<div class="tech"><strong>Python</strong><span data-tr="küçük araçlar ve denemeler" data-en="small tools and experiments">küçük araçlar ve denemeler</span></div>
+<div class="tech"><strong>Linux</strong><span data-tr="günlük kullandığım ortam" data-en="my daily environment">günlük kullandığım ortam</span></div>
+<div class="tech"><strong>Git</strong><span data-tr="bir şeyleri kaybetmemek için" data-en="so i don't lose stuff">bir şeyleri kaybetmemek için</span></div>
+</div>
+
+</div>
+</section>
+
+<section class="page" id="projects">
+<div class="wrapper">
+
+<div class="section-title">
+<div class="label" data-tr="projeler" data-en="projects">projeler</div>
+<h2 data-tr="yaptığım bazı şeyler." data-en="some stuff i've made.">yaptığım bazı şeyler.</h2>
+<p class="lead"
+data-tr="genelde bir şeyi öğrenmek için başlıyorum. sonra proje büyüyor ve ne olduğunu ben de tam anlamıyorum."
+data-en="usually i start to learn something. then the project grows and i'm not always sure what it became.">
+genelde bir şeyi öğrenmek için başlıyorum. sonra proje büyüyor ve ne olduğunu ben de tam anlamıyorum.
+</p>
+</div>
+
+<article class="project">
+<div class="project-top">
+<h3>OpenShell</h3>
+<span class="tag">WEB / LINUX</span>
+</div>
+
+<p data-tr="başta sadece birkaç terminal komutunu taklit etmek için yapmıştım. sonra komut sistemi büyüdü ve küçük bir Linux deneyine dönüştü. tarayıcıda çalışıyor ve terminal mantığını denemek için yapılmış bir proje."
+data-en="at first i only wanted to imitate a few terminal commands. then the command system grew and it turned into a small Linux experiment. it runs in the browser and was made to explore terminal concepts.">
+başta sadece birkaç terminal komutunu taklit etmek için yapmıştım. sonra komut sistemi büyüdü ve küçük bir Linux deneyine dönüştü. tarayıcıda çalışıyor ve terminal mantığını denemek için yapılmış bir proje.
+</p>
+
+<a class="project-link" href="https://0xmht.dev.tc/OpenShell" target="_blank" rel="noopener noreferrer"
+data-tr="OpenShell'i aç →" data-en="open OpenShell →">OpenShell'i aç →</a>
+</article>
+
+</div>
+</section>
+
+<section class="page" id="now">
+<div class="wrapper">
+
+<div class="section-title">
+<div class="label" data-tr="şu an" data-en="now">şu an</div>
+<h2 data-tr="şu sıralar ne yapıyorum?" data-en="what am i doing lately?">şu sıralar ne yapıyorum?</h2>
+<p class="lead"
+data-tr="bu bölüm zaman zaman değişebilir. yani burada yazanlar birkaç ay sonra farklı olabilir."
+data-en="this section might change sometimes. so what's here in a few months could be different.">
+bu bölüm zaman zaman değişebilir. yani burada yazanlar birkaç ay sonra farklı olabilir.
+</p>
+</div>
+
+<div class="box" style="max-width:650px">
+<ul class="now-list">
+<li data-tr="OpenShell üzerinde çalışıyorum ve yeni fikirler deniyorum" data-en="working on OpenShell and trying new ideas">OpenShell üzerinde çalışıyorum ve yeni fikirler deniyorum</li>
+<li data-tr="JavaScript tarafında daha fazla şey öğreniyorum" data-en="learning more JavaScript stuff">JavaScript tarafında daha fazla şey öğreniyorum</li>
+<li data-tr="Linux tarafını daha fazla kurcalıyorum" data-en="exploring Linux more">Linux tarafını daha fazla kurcalıyorum</li>
+<li data-tr="aklıma gelen proje fikirlerini bir yere not alıyorum" data-en="writing down project ideas when they appear">aklıma gelen proje fikirlerini bir yere not alıyorum</li>
+</ul>
+</div>
+
+</div>
+</section>
+
+<section class="page" id="contact">
+<div class="wrapper">
+
+<div class="section-title">
+<div class="label" data-tr="iletişim" data-en="contact">iletişim</div>
+<h2 data-tr="bir şey varsa yazabilirsin." data-en="feel free to say hi.">bir şey varsa yazabilirsin.</h2>
+</div>
+
+<div class="contact">
+<p data-tr="projeler, fikirler veya web ile alakalı bir şey konuşmak istersen mail atabilirsin."
+data-en="if you want to talk about projects, ideas or anything web related, you can send me an email.">
+projeler, fikirler veya web ile alakalı bir şey konuşmak istersen mail atabilirsin.
+</p>
+
+<a class="email" href="mailto:mdev.team@proton.me">mdev.team@proton.me</a>
+
+<div class="socials">
+<a href="https://github.com/0xmht" target="_blank" rel="noopener noreferrer">GitHub</a>
+<a href="https://www.linkedin.com/in/0xmhtt" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+</div>
+</div>
+
+</div>
+</section>
+
+</main>
+
+<footer>© 2026 Mehmet</footer>
+
+<script>
+const languageButton = document.getElementById("language");
+const pages = document.querySelectorAll(".page");
+const navLinks = document.querySelectorAll('nav a[href^="#"]');
+const texts = document.querySelectorAll("[data-tr]");
+
+let language = "tr";
+
+function showPage() {
+    let pageName = location.hash.replace("#", "");
+
+    if (!document.getElementById(pageName)) {
+        pageName = "home";
+    }
+
+    pages.forEach(function(page) {
+        page.classList.toggle("active", page.id === pageName);
+    });
+
+    navLinks.forEach(function(link) {
+        link.classList.toggle(
+            "active",
+            link.getAttribute("href") === "#" + pageName
+        );
+    });
+
+    window.scrollTo(0, 0);
+}
+
+function changeLanguage() {
+    language = language === "tr" ? "en" : "tr";
+
+    document.documentElement.lang = language;
+    languageButton.textContent = language === "tr" ? "EN" : "TR";
+
+    texts.forEach(function(element) {
+        if (element.dataset[language]) {
+            element.textContent = element.dataset[language];
+        }
+    });
+}
+
+languageButton.addEventListener("click", changeLanguage);
+window.addEventListener("hashchange", showPage);
+
+showPage();
+</script>
+
+</body>
+</html>
