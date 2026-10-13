@@ -5,12 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vyra Servers Status</title>
   <style>
-    s1,s2 {
-      color: green;
+    :root {
+      color-scheme: dark;
     }
+
     body {
-     color-scheme: light dark;
-      text align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      text-align: center;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    s1, s2 {
+      color: green;
     }
   </style>
 </head>
@@ -18,15 +42,18 @@
 
   <header><h1>vyra servers status</h1></header>
   <main>
-    <section><h1>Server 1:</h1><br>
-    <span class="s1">•</span>
+    <section>
+      <h1>Server 1:</h1>
+      <span class="s1">•</span>
     </section>
     <section>
-<h1>Server 2:</h1>
+      <h1>Server 2:</h1>
       <span class="s2">•</span>
     </section>
   </main>
-  <footer><a href="https://vyra.is-best.net">2026 VYRA®</a></footer>
+  <footer>
+    <a href="https://vyra.is-best.net">2026 VYRA®</a>
+  </footer>
 
 </body>
 </html>
