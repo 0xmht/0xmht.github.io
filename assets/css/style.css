@@ -19,3 +19,16 @@ h1,h2,h3,p{margin-top:0}h1{font-size:clamp(46px,8vw,86px);line-height:.99;letter
 .site-footer{border-top:1px solid var(--line);padding:24px 0 32px;color:var(--muted);font-size:11px}.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:20px}.footer-links{display:flex;gap:18px}
 @media(max-width:720px){.wrap{width:min(var(--max),calc(100% - 32px))}.header-inner{min-height:68px}.menu-button{display:inline-flex}.nav{display:none;position:absolute;z-index:5;top:68px;left:0;right:0;padding:16px;background:var(--panel);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:7px}.nav.open{display:flex}.nav a{padding:9px 5px}.hero-row{display:block}.hero-note{margin-top:30px}.project-grid,.info-grid{grid-template-columns:1fr}.project-row{grid-template-columns:42px 1fr auto;gap:12px;padding:17px}.footer-inner{align-items:flex-start;flex-direction:column}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+
+/* Personal identity / About page */
+.about-page{padding-top:54px}
+.identity-panel{position:relative;isolation:isolate;overflow:hidden;margin:28px 0 58px;min-height:270px;padding:24px 28px;border:1px solid var(--line);border-radius:13px;background:linear-gradient(125deg,#1b2117 0%,#151812 58%,#20271a 100%);display:flex;flex-direction:column;justify-content:space-between}
+.identity-panel:before{content:"";position:absolute;z-index:-1;width:330px;height:330px;right:8%;top:-190px;border:1px solid #c7f36b35;border-radius:50%;box-shadow:0 0 0 34px #c7f36b08,0 0 0 70px #c7f36b06}
+.identity-top,.identity-bottom{display:flex;justify-content:space-between;gap:18px;color:var(--muted);font-size:10px;font-weight:700;letter-spacing:.15em}
+.identity-name{font-size:clamp(66px,14vw,150px);line-height:.82;letter-spacing:-.105em;font-weight:850;white-space:nowrap;color:var(--text)}
+.identity-name span{color:var(--accent)}.identity-index{position:absolute;right:28px;bottom:34px;color:#c7f36b12;font-size:clamp(100px,18vw,190px);line-height:.8;font-weight:900;letter-spacing:-.12em;z-index:-1}
+.profile-heading{margin-top:54px;margin-bottom:20px}.profile-heading h2{font-size:clamp(25px,4vw,34px);letter-spacing:-.06em;margin:8px 0 0}
+.profile-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.profile-item{min-height:100px;padding:20px 22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;justify-content:center;gap:8px;background:linear-gradient(145deg,#191c17,#151812)}
+.profile-item span{color:var(--accent);font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase}.profile-item strong{font-size:15px;font-weight:620;line-height:1.45}
+@media(max-width:600px){.identity-panel{min-height:210px;padding:18px}.identity-name{font-size:clamp(55px,15vw,92px)}.identity-top,.identity-bottom{font-size:8px;letter-spacing:.1em}.identity-index{right:16px;bottom:25px}.profile-grid{grid-template-columns:1fr}.profile-item{min-height:82px;padding:16px 18px}}
