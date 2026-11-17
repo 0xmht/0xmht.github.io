@@ -1,137 +1,20 @@
 <!doctype html>
-<html lang="tr">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#080b10"><meta name="description" content="Mehmet'in yazılım, Linux ve 3D web projeleri portfolyosu.">
-<title>Mehmet — Developer & Digital Builder</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-:root{color-scheme:dark;--bg:#070a0f;--surface:#0d131c;--line:rgba(179,210,218,.13);--text:#edf5f5;--muted:#91a3ad;--mint:#8be0c1;--cyan:#7cc9e8;--mono:"DM Mono",monospace;--font:"Manrope",system-ui,sans-serif}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:85px}
-body{margin:0;background:radial-gradient(ellipse at 12% 0%,#22765b2b,transparent 34rem),radial-gradient(ellipse at 92% 24%,#30699922,transparent 34rem),var(--bg);color:var(--text);font:15px/1.75 var(--font);overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.12;background-image:linear-gradient(#fff09 1px,transparent 1px),linear-gradient(90deg,#fff09 1px,transparent 1px);background-size:58px 58px;mask-image:linear-gradient(#000,transparent 80%)}
-a{color:inherit;text-decoration:none}button{font:inherit}.container{width:min(1160px,calc(100% - 44px));margin:auto}
-header{position:sticky;top:0;z-index:20;background:#070a0fc9;backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
-nav{height:74px;display:flex;align-items:center;justify-content:space-between;gap:22px}.brand{font-size:20px;font-weight:800;letter-spacing:-1px}.brand span{color:var(--mint)}
-.navlinks{display:flex;gap:30px;color:var(--muted);font-size:12px;font-weight:700}.navlinks a:hover{color:var(--mint)}
-.navright{display:flex;align-items:center;gap:10px}.lang,.github,.button{border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:11px;font-weight:800;transition:.2s}
-.lang{background:#101923;color:var(--mint);font-family:var(--mono);cursor:pointer}.github,.button{display:inline-flex;align-items:center;justify-content:center;gap:8px}.github:hover,.button:hover,.lang:hover{transform:translateY(-2px);border-color:#8be0c177}
-.menu{display:none;background:var(--surface);border:1px solid var(--line);color:var(--text);border-radius:9px;padding:8px 11px}
-.hero{min-height:650px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px;padding:80px 0}
-.eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid #8be0c144;background:#16372d66;color:var(--mint);border-radius:99px;padding:7px 12px;font:10px var(--mono);letter-spacing:1px}
-.pulse{width:7px;height:7px;border-radius:50%;background:var(--mint);box-shadow:0 0 14px var(--mint)}
-h1{font-size:clamp(48px,7vw,84px);line-height:1.02;letter-spacing:-5px;margin:25px 0 20px}.gradient{background:linear-gradient(105deg,#f2ffff,#9be9ce 50%,#80c9ed);color:transparent;background-clip:text}
-.hero p{max-width:570px;color:var(--muted);font-size:15px;line-height:1.95}.actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:27px}
-.primary{background:var(--mint);color:#07110e;border-color:var(--mint)}.quiet{background:#101923}
-.meta{display:flex;gap:22px;flex-wrap:wrap;margin-top:35px;color:#71848e;font:10px var(--mono)}.meta span:before{content:"/";color:var(--mint);margin-right:8px}
-.art{min-height:410px;position:relative;display:grid;place-items:center}.glow{position:absolute;width:300px;height:300px;border-radius:50%;background:#4ab49120;filter:blur(70px)}
-.orbit{width:min(360px,78vw);aspect-ratio:1;border:1px solid #8be0c133;border-radius:50%;display:grid;place-items:center;position:relative;box-shadow:0 0 80px #38937b14,inset 0 0 60px #38937b0a}
-.orbit:before,.orbit:after{content:"";position:absolute;border:1px solid #7cc9e829;border-radius:50%}.orbit:before{inset:11%}.orbit:after{inset:23%;border-color:#8be0c122}
-.ring{position:absolute;inset:-5%;border:1px dashed #8be0c144;border-radius:50%;animation:spin 38s linear infinite}.ring:after{content:"";position:absolute;top:12%;left:13%;width:9px;height:9px;background:var(--mint);border-radius:50%;box-shadow:0 0 20px var(--mint)}
-.monogram{width:125px;height:125px;border-radius:30px;display:grid;place-items:center;font-size:55px;font-weight:800;color:var(--mint);background:linear-gradient(145deg,#19352f,#101a25);border:1px solid #8be0c166;box-shadow:0 24px 90px #0009;transform:rotate(-8deg)}
-.float{position:absolute;border:1px solid var(--line);background:#0c141de8;padding:11px 14px;border-radius:11px;box-shadow:0 15px 40px #0006}.float small{display:block;color:#718791;font:9px var(--mono)}.float b{font:11px var(--mono)}.f1{top:35px;right:0}.f2{bottom:40px;left:0}
-section.section{padding:95px 0;border-top:1px solid var(--line)}.section-head{display:flex;justify-content:space-between;align-items:end;gap:28px;margin-bottom:32px}
-.kicker{font:10px var(--mono);letter-spacing:1.5px;color:var(--mint)}h2{font-size:clamp(34px,4.5vw,50px);line-height:1.12;letter-spacing:-2.5px;margin:12px 0 0}
-.intro{max-width:450px;color:var(--muted);font-size:13px;margin:0 0 4px}
-.about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}.glass{background:linear-gradient(145deg,#121d27ed,#0a1018f2);border:1px solid var(--line);border-radius:18px;padding:28px}
-.about-text{color:#a9b8be;font-size:14px;line-height:2;margin:0}.chips,.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}.chip,.tags span{border:1px solid var(--line);background:#1c2b3699;border-radius:7px;padding:6px 9px;color:#c6d5d9;font:10px var(--mono)}
-.principles{display:grid;grid-template-columns:1fr 1fr;gap:10px}.principle{background:#050b1173;border:1px solid var(--line);border-radius:12px;padding:16px}.principle b{display:block;color:var(--mint);font-size:23px}.principle span{font-size:11px;color:var(--muted)}
-.projects{display:grid;grid-template-columns:1fr 1fr;gap:17px}.project{min-height:335px;display:flex;flex-direction:column;padding:25px;border-radius:18px;border:1px solid var(--line);background:linear-gradient(145deg,#13212cf5,#0a1018fa);transition:.25s;position:relative;overflow:hidden}
-.project:hover{transform:translateY(-6px);border-color:#8be0c177;box-shadow:0 22px 60px #0006}.project:before{content:"";position:absolute;width:190px;height:190px;right:-90px;top:-100px;border-radius:50%;background:#8be0c116;filter:blur(20px)}
-.project-top{display:flex;align-items:center;justify-content:space-between}.project-icon{width:47px;height:47px;display:grid;place-items:center;border-radius:13px;background:#172e2a;border:1px solid #8be0c155;color:var(--mint);font:20px var(--mono)}
-.project-no{font:10px var(--mono);color:#71848e}.project h3{font-size:28px;letter-spacing:-1px;margin:22px 0 7px}.project p{color:var(--muted);font-size:13px;line-height:1.9;margin:0 0 20px}
-.tags{margin-top:auto;margin-bottom:18px}.project-foot{border-top:1px solid var(--line);padding-top:16px;display:flex;justify-content:space-between;align-items:center;color:var(--mint);font:10px var(--mono)}
-.tork .project-icon{color:var(--cyan);border-color:#7cc9e866;background:#1c2939}.tork:before{background:#4c94cd1a}.tork .project-foot{color:var(--cyan)}
-.contact-panel{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:32px;border-radius:19px;border:1px solid #8be0c144;background:radial-gradient(ellipse at 0 0,#8be0c11a,transparent 60%),linear-gradient(120deg,#101c20,#101923)}
-.contact-panel p{color:var(--muted);font-size:13px}.email{display:inline-block;margin-top:10px;color:var(--mint);font:12px var(--mono);overflow-wrap:anywhere}
-footer{padding:28px 0 34px;color:#74858d;font:10px var(--mono)}.foot{border-top:1px solid var(--line);padding-top:20px;display:flex;justify-content:space-between;gap:15px}
-.reveal{opacity:0;transform:translateY(16px);transition:.6s}.reveal.visible{opacity:1;transform:none}
-@keyframes spin{to{transform:rotate(360deg)}}
-@media(max-width:800px){.hero{grid-template-columns:1fr;padding:70px 0}.art{min-height:350px}.section-head{display:block}.intro{margin-top:15px}.about-grid{grid-template-columns:1fr}}
-@media(max-width:620px){.container{width:calc(100% - 30px)}.nav{height:66px}.menu{display:block}.navlinks{display:none;position:absolute;top:66px;left:0;right:0;padding:20px;background:#070a0f;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:17px}.navlinks.open{display:flex}.github{display:none}
-h1{font-size:clamp(46px,13vw,65px);letter-spacing:-3.5px}.hero{padding:60px 0 50px}.art{min-height:300px}.orbit{width:260px}.monogram{width:105px;height:105px;font-size:46px}
-section.section{padding:70px 0}.glass{padding:22px}.projects{grid-template-columns:1fr}.project{min-height:320px;padding:22px}.contact-panel{align-items:flex-start;flex-direction:column;padding:24px}.foot{flex-direction:column}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
-</style>
-</head>
-<body>
-<header><nav class="container">
-<a class="brand" href="#home">mehmet<span>.</span></a>
-<div class="navlinks" id="navlinks"><a href="#about" data-t="navAbout">Hakkımda</a><a href="#projects" data-t="navProjects">Projeler</a><a href="#contact" data-t="navContact">İletişim</a></div>
-<div class="navright"><button class="lang" id="lang" type="button" aria-label="Switch language">EN</button><a class="github" href="https://github.com/0xmht" target="_blank" rel="noopener">GitHub ↗</a><button class="menu" id="menu" aria-label="Menüyü aç" aria-expanded="false">☰</button></div>
-</nav></header>
-<main id="home">
-<div class="container hero">
-<div>
-<div class="eyebrow"><span class="pulse"></span><span data-t="eyebrow">BAĞIMSIZ GELİŞTİRİCİ</span></div>
-<h1 data-t="heroTitle">Merak et.<br><span class="gradient">Tasarla.</span><br>Gerçekleştir.</h1>
-<p data-t="heroCopy">Ben Mehmet. Web teknolojileri, Linux sistemleri ve etkileşimli dijital deneyimler üzerine çalışan, fikirlerini deneyerek geliştiren bağımsız bir geliştiriciyim.</p>
-<div class="actions"><a class="button primary" href="#projects" data-t="heroProjects">Projeleri keşfet ↘</a><a class="button quiet" href="mailto:mehmetshnxyz@proton.me" data-t="heroContact">Benimle iletişime geç ↗</a></div>
-<div class="meta"><span>WEB TECHNOLOGIES</span><span>LINUX</span><span>3D EXPERIENCES</span></div>
-</div>
-<div class="art" aria-hidden="true"><div class="glow"></div><div class="orbit"><div class="ring"></div><div class="monogram">M.</div></div><div class="float f1"><small data-t="focusLabel">CURRENT FOCUS</small><b data-t="focusValue">BUILDING IDEAS</b></div><div class="float f2"><small>INTERESTS</small><b>CODE / SYSTEMS / 3D</b></div></div>
-</div>
-<section class="section" id="about"><div class="container">
-<div class="section-head"><div><div class="kicker">01 / <span data-t="aboutLabel">HAKKIMDA</span></div><h2 data-t="aboutTitle">Öğrenmek için üret,<br>üretmek için merak et.</h2></div><p class="intro" data-t="aboutIntro">Teknolojiyi sadece kullanmakla yetinmiyorum. Nasıl çalıştığını anlamayı, sınırlarını keşfetmeyi ve kendi çözümlerimi geliştirmeyi seviyorum.</p></div>
-<div class="about-grid"><div class="glass"><p class="about-text" data-t="aboutText">Çalışmalarım web geliştirme, Linux ve terminal tabanlı araçlar ile tarayıcıda çalışan etkileşimli deneyimler etrafında şekilleniyor. Her projede yeni bir şey öğrenmeye, detaylara dikkat etmeye ve ortaya gerçekten çalışan bir ürün çıkarmaya odaklanıyorum.</p><div class="chips"><span class="chip">HTML & CSS</span><span class="chip">JavaScript</span><span class="chip">Three.js</span><span class="chip">Linux</span><span class="chip">Git & GitHub</span><span class="chip">PHP</span></div></div>
-<div class="glass principles"><div class="principle"><b>01</b><span data-t="step1">Merak et</span></div><div class="principle"><b>02</b><span data-t="step2">Deney yap</span></div><div class="principle"><b>03</b><span data-t="step3">İnşa et</span></div><div class="principle"><b>∞</b><span data-t="step4">Gelişmeye devam et</span></div></div></div>
-</div></section>
-<section class="section" id="projects"><div class="container">
-<div class="section-head"><div><div class="kicker">02 / <span data-t="workLabel">SEÇİLMİŞ İŞLER</span></div><h2 data-t="projectsTitle">Projeler<span class="gradient">.</span></h2></div><p class="intro" data-t="projectsIntro">Terminal dünyasından gerçek zamanlı 3D deneyimlere uzanan seçilmiş çalışmalarım.</p></div>
-<div class="projects">
-<a class="project" href="https://mehmet.is-a.dev/openshell" target="_blank" rel="noopener"><div class="project-top"><div class="project-icon">$_</div><span class="project-no">PROJECT / 001</span></div><h3>OpenShell</h3><p data-t="openDesc">Linux terminal deneyimini tarayıcıya taşıyan interaktif simülasyon. Komut satırı dünyasını keşfetmek ve terminal mantığını deneyimlemek için tasarlandı.</p><div class="tags"><span>LINUX</span><span>TERMINAL</span><span>JAVASCRIPT</span></div><div class="project-foot"><span data-t="openLink">TERMINALİ KEŞFET</span><b>↗</b></div></a>
-<a class="project tork" href="https://mehmet.is-a.dev/torkvexa" target="_blank" rel="noopener"><div class="project-top"><div class="project-icon">◈</div><span class="project-no">PROJECT / 002</span></div><h3>Torkvexa</h3><p data-t="torkDesc">Three.js ile geliştirilen 3D otomotiv deneyimi. Bir araç motorunu tarayıcı üzerinde üç boyutlu olarak incelemeye odaklanan interaktif bir çalışma.</p><div class="tags"><span>THREE.JS</span><span>3D WEB</span><span>WEBGL</span></div><div class="project-foot"><span data-t="torkLink">3D DENEYİMİ AÇ</span><b>↗</b></div></a>
-</div></div></section>
-<section class="section" id="contact"><div class="container"><div class="contact-panel"><div><div class="kicker">03 / <span data-t="contactLabel">İLETİŞİM</span></div><h2 data-t="contactTitle">Bir fikrin mi var?</h2><p data-t="contactText">Proje, iş birliği veya teknoloji üzerine iletişim kurmak için e-posta gönderebilirsin.</p><a class="email" href="mailto:mehmetshnxyz@proton.me">✉ mehmetshnxyz@proton.me</a></div><a class="button primary" href="mailto:mehmetshnxyz@proton.me" data-t="sendEmail">E-posta gönder ↗</a></div></div></section>
-</main>
-<footer><div class="container foot"><span>© <span id="year"></span> MEHMET · BUILT WITH CURIOSITY.</span><a href="#home" data-t="backTop">BAŞA DÖN ↑</a></div></footer>
-<script>
-const copy={
-tr:{
-navAbout:"Hakkımda",navProjects:"Projeler",navContact:"İletişim",eyebrow:"BAĞIMSIZ GELİŞTİRİCİ",
-heroTitle:'Merak et.<br><span class="gradient">Tasarla.</span><br>Gerçekleştir.',
-heroCopy:"Ben Mehmet. Web teknolojileri, Linux sistemleri ve etkileşimli dijital deneyimler üzerine çalışan, fikirlerini deneyerek geliştiren bağımsız bir geliştiriciyim.",
-heroProjects:"Projeleri keşfet ↘",heroContact:"Benimle iletişime geç ↗",focusLabel:"ŞU AN ODAKLANDIĞIM",focusValue:"FİKİRLERİ GELİŞTİRMEK",
-aboutLabel:"HAKKIMDA",aboutTitle:"Öğrenmek için üret,<br>üretmek için merak et.",
-aboutIntro:"Teknolojiyi sadece kullanmakla yetinmiyorum. Nasıl çalıştığını anlamayı, sınırlarını keşfetmeyi ve kendi çözümlerimi geliştirmeyi seviyorum.",
-aboutText:"Çalışmalarım web geliştirme, Linux ve terminal tabanlı araçlar ile tarayıcıda çalışan etkileşimli deneyimler etrafında şekilleniyor. Her projede yeni bir şey öğrenmeye, detaylara dikkat etmeye ve ortaya gerçekten çalışan bir ürün çıkarmaya odaklanıyorum.",
-step1:"Merak et",step2:"Deney yap",step3:"İnşa et",step4:"Gelişmeye devam et",
-workLabel:"SEÇİLMİŞ İŞLER",projectsTitle:'Projeler<span class="gradient">.</span>',projectsIntro:"Terminal dünyasından gerçek zamanlı 3D deneyimlere uzanan seçilmiş çalışmalarım.",
-openDesc:"Linux terminal deneyimini tarayıcıya taşıyan interaktif simülasyon. Komut satırı dünyasını keşfetmek ve terminal mantığını deneyimlemek için tasarlandı.",
-openLink:"TERMİNALİ KEŞFET",torkDesc:"Three.js ile geliştirilen 3D otomotiv deneyimi. Bir araç motorunu tarayıcı üzerinde üç boyutlu olarak incelemeye odaklanan interaktif bir çalışma.",
-torkLink:"3D DENEYİMİ AÇ",contactLabel:"İLETİŞİM",contactTitle:"Bir fikrin mi var?",contactText:"Proje, iş birliği veya teknoloji üzerine iletişim kurmak için e-posta gönderebilirsin.",sendEmail:"E-posta gönder ↗",backTop:"BAŞA DÖN ↑"
-},
-en:{
-navAbout:"About",navProjects:"Projects",navContact:"Contact",eyebrow:"INDEPENDENT DEVELOPER",
-heroTitle:'Stay curious.<br><span class="gradient">Design.</span><br>Make it real.',
-heroCopy:"I'm Mehmet, an independent developer exploring web technologies, Linux systems, and interactive digital experiences. I learn by experimenting, building, and improving ideas.",
-heroProjects:"Explore projects ↘",heroContact:"Get in touch ↗",focusLabel:"CURRENT FOCUS",focusValue:"TURNING IDEAS INTO REALITY",
-aboutLabel:"ABOUT",aboutTitle:"Build to learn.<br>Stay curious to build.",
-aboutIntro:"I don't just use technology. I enjoy understanding how it works, exploring its limits, and creating solutions of my own.",
-aboutText:"My work revolves around web development, Linux, terminal-based tools, and interactive browser experiences. With every project, I focus on learning something new, paying attention to detail, and building something that actually works.",
-step1:"Stay curious",step2:"Experiment",step3:"Build",step4:"Keep improving",
-workLabel:"SELECTED WORK",projectsTitle:'Projects<span class="gradient">.</span>',projectsIntro:"Selected projects ranging from terminal experiences to real-time 3D experiences on the web.",
-openDesc:"An interactive simulation that brings a Linux terminal experience to the browser. Built to explore the command line and get familiar with terminal workflows.",
-openLink:"EXPLORE TERMINAL",torkDesc:"A 3D automotive experience built with Three.js. An interactive project focused on exploring a vehicle engine in three dimensions right in the browser.",
-torkLink:"OPEN 3D EXPERIENCE",contactLabel:"CONTACT",contactTitle:"Have an idea?",contactText:"Send me an email about projects, collaboration, or technology.",sendEmail:"Send an email ↗",backTop:"BACK TO TOP ↑"
-}};
-const langButton=document.getElementById("lang");
-function setLanguage(lang){
-document.documentElement.lang=lang;
-document.querySelectorAll("[data-t]").forEach(el=>{const value=copy[lang][el.dataset.t];if(value!==undefined)el.innerHTML=value});
-langButton.textContent=lang==="tr"?"EN":"TR";
-langButton.setAttribute("aria-label",lang==="tr"?"Switch language":"Switch language to Turkish");
-document.title=lang==="tr"?"Mehmet — Developer & Digital Builder":"Mehmet — Developer & Digital Builder";
-try{localStorage.setItem("portfolio-lang",lang)}catch(e){}
-}
-let start="tr";try{const saved=localStorage.getItem("portfolio-lang");if(saved==="en"||saved==="tr")start=saved}catch(e){}
-setLanguage(start);langButton.addEventListener("click",()=>setLanguage(document.documentElement.lang==="tr"?"en":"tr"));
-const menu=document.getElementById("menu"),links=document.getElementById("navlinks");
-menu.addEventListener("click",()=>{const open=links.classList.toggle("open");menu.setAttribute("aria-expanded",String(open));menu.textContent=open?"×":"☰"});
-links.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{links.classList.remove("open");menu.setAttribute("aria-expanded","false");menu.textContent="☰"}));
-document.getElementById("year").textContent=new Date().getFullYear();
-const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");observer.unobserve(e.target)}}),{threshold:.12});
-document.querySelectorAll(".section-head,.glass,.project,.contact-panel").forEach(el=>{el.classList.add("reveal");observer.observe(el)});
-</script>
+<html lang="tr"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Mehmet'in kişisel geliştirici sitesi. Yazılım, Linux ve web projeleri."><meta name="theme-color" content="#111310">
+<title>Ana sayfa · Mehmet</title><link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/main.js" defer></script></head><body>
+<header class="site-header"><div class="wrap header-inner">
+<a class="brand" href="index.html" aria-label="Mehmet ana sayfa"><span class="brand-mark">m.</span><span>mehmet<span style="color:var(--accent)">.</span></span></a>
+<nav class="nav" aria-label="Ana menü"><a href="index.html" aria-current="page" data-i18n="navHome">Ana sayfa</a><a href="about.html" data-i18n="navAbout">Hakkımda</a><a href="projects.html" data-i18n="navProjects">Projeler</a><a href="contact.html" data-i18n="navContact">İletişim</a></nav>
+<div class="header-actions"><button class="lang-button" type="button" data-language-toggle aria-label="Change language"><span data-lang-label>EN</span></button><button class="menu-button" type="button" aria-expanded="false" aria-label="Menüyü aç">Menü</button></div>
+</div></header><main><section class="hero"><div class="wrap"><div class="kicker" data-i18n="homeKicker">Kişisel geliştirici alanı</div><div class="hero-row"><div>
+<h1><span data-i18n="hello">Merhaba, ben Mehmet.</span><br><span class="soft" data-i18n="homeLine">Kod yazıyorum. Bir şeyler deniyorum. Öğrenmeye devam ediyorum.</span></h1>
+<p class="lead" data-i18n="intro">Yazılım, Linux ve web teknolojileriyle ilgileniyorum. Burada üzerinde çalıştığım işleri ve öğrendiklerimi paylaşıyorum.</p>
+<div class="actions"><a class="button" href="projects.html" data-i18n="seeProjects">Projeleri gör</a><a class="button secondary" href="about.html" data-i18n="aboutMe">Biraz ben</a></div></div><p class="hero-note"><span data-i18n="now">Şu sıralar</span><br><span data-i18n="status">Yeni şeyler öğreniliyor.</span></p></div></div></section>
+<section class="section"><div class="wrap"><div class="section-heading"><h2 data-i18n="selected">Seçili işler</h2><p data-i18n="selectedNote">Denediğim, geliştirdiğim ve bozup tekrar yaptığım şeyler.</p></div><div class="project-grid">
+<a class="project-card" href="https://mehmet.is-a.dev/openshell" target="_blank" rel="noopener noreferrer"><div class="project-top"><span>01 / WEB TOOL</span><span>↗</span></div><h3>OpenShell</h3><p data-i18n="openShell">Tarayıcıda çalışan terminal arayüzü.</p><span class="project-link" data-i18n="visit">Projeyi aç ↗</span></a>
+<a class="project-card" href="https://mehmet.is-a.dev/torkvexa" target="_blank" rel="noopener noreferrer"><div class="project-top"><span>02 / THREE.JS</span><span>↗</span></div><h3>Torkvexa</h3><p data-i18n="torkvexa">Three.js ile hazırlanmış interaktif 3D deneyim.</p><span class="project-link" data-i18n="visit">Projeyi aç ↗</span></a>
+</div></div></section></main>
+<footer class="site-footer"><div class="wrap footer-inner"><span>© 2026 Mehmet. <span data-i18n="footer">Kendi hâlinde geliştiriliyor.</span></span><div class="footer-links"><a href="projects.html" data-i18n="navProjects">Projeler</a><a href="contact.html" data-i18n="navContact">İletişim</a></div></div></footer>
 </body></html>
