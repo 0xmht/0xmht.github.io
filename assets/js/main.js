@@ -1,48 +1,51 @@
-const translations = {
+const copy = {
   tr: {
-    available: "Yeni projelere açık",
-    eyebrow: "BAĞIMSIZ GELİŞTİRİCİ · İZMİR, TR",
-    hello: "Merhaba, ben",
-    intro: "Web teknolojileri, yazılım ve etkileşimli deneyimler üzerine çalışan bir geliştiriciyim. Fikirleri çalışan projelere dönüştürmeyi seviyorum.",
-    projectsBtn: "Projelerimi keşfet",
-    contactBtn: "İletişime geç",
+    status: "Yeni projelere açık",
+    kicker: "BAĞIMSIZ GELİŞTİRİCİ · İZMİR, TR",
+    greeting: "Merhaba, ben",
+    description: "Web teknolojileri, yazılım ve etkileşimli deneyimler üzerine çalışan bir geliştiriciyim. Fikirleri çalışan projelere dönüştürmeyi seviyorum.",
+    projects: "Projelerimi keşfet",
+    contact: "İletişime geç",
     focus: "ODAK ALANLARI",
-    sideNote: "Her proje, yeni bir şey denemek ve daha iyisini üretmek için bir fırsat.",
+    caption: "Merak et. Dene. Üret. Her proje yeni bir başlangıç.",
     selected: "SEÇİLİ PROJELER",
-    openShell: "Tarayıcıda çalışan terminal simülasyonu",
+    openshell: "Tarayıcıda çalışan terminal simülasyonu",
     torkvexa: "Otomotiv ve motor simülasyonu",
     footer: "Merakla tasarlandı. Kodla geliştirildi."
   },
   en: {
-    available: "Open to new projects",
-    eyebrow: "INDEPENDENT DEVELOPER · IZMIR, TR",
-    hello: "Hello, I'm",
-    intro: "I'm a developer working with web technologies, software and interactive experiences. I enjoy turning ideas into working projects.",
-    projectsBtn: "Explore my projects",
-    contactBtn: "Get in touch",
+    status: "Open to new projects",
+    kicker: "INDEPENDENT DEVELOPER · IZMIR, TR",
+    greeting: "Hello, I'm",
+    description: "I'm a developer working with web technologies, software and interactive experiences. I enjoy turning ideas into working projects.",
+    projects: "Explore my projects",
+    contact: "Get in touch",
     focus: "FOCUS AREAS",
-    sideNote: "Every project is a chance to experiment, learn something new and build something better.",
+    caption: "Stay curious. Experiment. Build. Every project is a new beginning.",
     selected: "SELECTED PROJECTS",
-    openShell: "A terminal simulation running in the browser",
+    openshell: "A terminal simulation running in your browser",
     torkvexa: "Automotive and engine simulation",
     footer: "Designed with curiosity. Built with code."
   }
 };
 
-const langButton = document.querySelector("#langToggle");
+const languageButton = document.querySelector("#languageToggle");
 let language = localStorage.getItem("portfolio-language") || "tr";
 
-function setLanguage(nextLanguage) {
-  language = nextLanguage;
+function applyLanguage(next) {
+  language = next;
   document.documentElement.lang = language;
-  document.querySelectorAll("[data-i18n]").forEach((element) => {
-    const key = element.dataset.i18n;
-    if (translations[language][key]) element.textContent = translations[language][key];
+  document.querySelectorAll("[data-text]").forEach((node) => {
+    const key = node.dataset.text;
+    if (copy[language][key]) node.textContent = copy[language][key];
   });
-  langButton.textContent = language === "tr" ? "EN" : "TR";
+  languageButton.textContent = language === "tr" ? "EN" : "TR";
   localStorage.setItem("portfolio-language", language);
 }
 
-langButton.addEventListener("click", () => setLanguage(language === "tr" ? "en" : "tr"));
+languageButton.addEventListener("click", () => {
+  applyLanguage(language === "tr" ? "en" : "tr");
+});
+
 document.querySelector("#year").textContent = new Date().getFullYear();
-setLanguage(language);
+applyLanguage(language);
