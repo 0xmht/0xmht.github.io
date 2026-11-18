@@ -1,1 +1,68 @@
-<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Mehmet'in kişisel portfolyosu."><title>Mehmet. | Portfolio</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="assets/css/style.css"><script src="assets/js/main.js" defer></script></head><body><div class="shell"><nav class="nav"><a class="brand" href="index.html">mehmet<span>.</span></a><button class="menu" aria-label="Menüyü aç" aria-expanded="false">☰</button><div class="links"><a class="active" href="index.html" data-i18n="home">Ana sayfa</a><a href="about.html" data-i18n="about">Hakkımda</a><a href="projects.html" data-i18n="projects">Projeler</a><a href="contact.html" data-i18n="contact">İletişim</a></div><button class="language">EN</button></nav><main><section class="hero"><div class="eyebrow"><i></i><span data-i18n="location">Kişisel portfolyo · İzmir, Türkiye</span></div><h1>Mehmet<span>.</span></h1><h2 data-i18n="role">Merhaba, ben Mehmet. Frontend geliştiricisiyim.</h2><p data-i18n="intro">Web geliştirme, yazılım ve elektronikle uğraşıyorum. Aklımdaki fikirleri çalışan projelere dönüştürmeyi seviyorum.</p><div class="actions"><a class="primary" href="projects.html" data-i18n="see">Projelerimi gör ↗</a><a class="subtle" href="about.html" data-i18n="meet">Biraz daha yakından tanı</a></div><div class="bottom"><span data-i18n="scroll">AŞAĞI KAYDIR</span><span class="rule"></span><span>01 / 04</span></div></section><section class="strip"><b data-i18n="tagline">Kod, merak ve biraz da lehim dumanı.</b><span>HTML · CSS · JavaScript · Electronics</span></section></main><footer>© <span class="year"></span> Mehmet <span data-i18n="footer">Kendi halinde üretiliyor.</span></footer></div></body></html>
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0d0c">
+  <meta name="description" content="Mehmet — Frontend developer, software and creative projects.">
+  <title>Mehmet. — Frontend Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <main class="shell" id="home">
+    <nav class="nav">
+      <a class="brand" href="#home" aria-label="Mehmet home"><span class="brand-mark">M</span><span>MEHMET<span class="lime">.</span></span></a>
+      <div class="nav-right">
+        <span class="availability"><i></i><span data-i18n="available">Yeni projelere açık</span></span>
+        <button class="lang" id="langToggle" type="button" aria-label="Change language">EN</button>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="eyebrow">BAĞIMSIZ GELİŞTİRİCİ · İZMİR, TR</span></p>
+        <h1><span data-i18n="hello">Merhaba, ben</span><br><span class="name">Mehmet<span class="lime">.</span></span></h1>
+        <p class="intro" data-i18n="intro">Web teknolojileri, yazılım ve etkileşimli deneyimler üzerine çalışan bir geliştiriciyim. Fikirleri çalışan projelere dönüştürmeyi seviyorum.</p>
+        <div class="actions">
+          <a class="button button-primary" href="#projects"><span data-i18n="projectsBtn">Projelerimi keşfet</span><span aria-hidden="true">↗</span></a>
+          <a class="button button-quiet" href="mailto:mehmetsahinxyz@proton.me"><span data-i18n="contactBtn">İletişime geç</span></a>
+        </div>
+        <div class="socials">
+          <a href="https://github.com/0xmht" target="_blank" rel="noreferrer">GITHUB <span>↗</span></a>
+          <a href="mailto:mehmetsahinxyz@proton.me">EMAIL <span>↗</span></a>
+        </div>
+      </div>
+
+      <aside class="hero-side">
+        <div class="orbit-card">
+          <div class="orbit-top"><span>PERSONAL SPACE</span><span>001 / 026</span></div>
+          <div class="orbit-graphic" aria-hidden="true">
+            <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="orbit orbit-c"></div>
+            <div class="orbit-core">M<span>.</span></div><i class="satellite"></i>
+          </div>
+          <div class="orbit-bottom"><span data-i18n="focus">ODAK ALANLARI</span><strong>WEB · CODE · BUILD</strong></div>
+        </div>
+        <div class="side-note"><span class="note-index">01</span><p data-i18n="sideNote">Her proje, yeni bir şey denemek ve daha iyisini üretmek için bir fırsat.</p></div>
+      </aside>
+    </section>
+
+    <section class="bottom" id="projects">
+      <div class="section-label"><span data-i18n="selected">SEÇİLİ PROJELER</span><span class="label-rule"></span><span>02</span></div>
+      <div class="project-grid">
+        <a class="project" href="https://mehmet.is-a.dev/OpenShell" target="_blank" rel="noreferrer">
+          <span class="project-no">01</span><span class="project-info"><strong>OpenShell</strong><small data-i18n="openShell">Tarayıcıda çalışan terminal simülasyonu</small></span><span class="project-arrow">↗</span>
+        </a>
+        <a class="project" href="https://mehmet.is-a.dev/torkvexa" target="_blank" rel="noreferrer">
+          <span class="project-no">02</span><span class="project-info"><strong>TorkVexa</strong><small data-i18n="torkvexa">Otomotiv ve motor simülasyonu</small></span><span class="project-arrow">↗</span>
+        </a>
+      </div>
+      <footer><span>© <span id="year"></span> MEHMET</span><span data-i18n="footer">Merakla tasarlandı. Kodla geliştirildi.</span><span class="footer-top">İZMİR, TR <i>↗</i></span></footer>
+    </section>
+  </main>
+</body>
+</html>
